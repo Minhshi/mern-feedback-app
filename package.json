@@ -7,7 +7,8 @@
     "yarn": "1.13.0"
   },
   "scripts": {
-    "start": "yarn index.js"
+    "start": "yarn index.js",
+    "buid": "webpack"
   },
   "license": "MIT",
   "dependencies": {
