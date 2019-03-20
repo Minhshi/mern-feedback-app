@@ -8,10 +8,13 @@
   },
   "scripts": {
     "start": "node index.js",
-    "buid": "webpack"
+    "dev": "nodemon index.js"
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "2"
   }
 }
