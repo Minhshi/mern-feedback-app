@@ -8,10 +8,13 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "yarn --cwd ./client run start",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^4.1.0",
     "cookie-session": "^1.3.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.19",
