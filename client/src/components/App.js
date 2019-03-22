@@ -1,14 +1,20 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux"
 import Header from "./Header";
 import Landing from "./Landing";
 import Dashboard from "./Dashboard";
 import SurveyNew from "./SurveyNew";
+import { fetchUser } from "../actions"
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchUser()
+  }
+
   render() {
     return (
-      <div>
+      <div className="container">
         <BrowserRouter>
           <div>
             <Header />
@@ -24,4 +30,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(null, { fetchUser })(App);
