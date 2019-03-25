@@ -2966,6 +2966,11 @@ default-require-extensions@^1.0.0:
   dependencies:
     strip-bom "^2.0.0"
 
+deferral@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/deferral/-/deferral-1.0.0.tgz#79e0dd87498443a03158210a9d86e1023dcf7704"
+  integrity sha1-eeDdh0mEQ6AxWCEKnYbhAj3PdwQ=
+
 define-properties@^1.1.2, define-properties@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/define-properties/-/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1"
@@ -5880,6 +5885,11 @@ levn@^0.3.0, levn@~0.3.0:
   dependencies:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
+
+little-loader@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/little-loader/-/little-loader-0.2.0.tgz#d572b842ab95ab6fab40571f79514ad49ab8d9bd"
+  integrity sha1-1XK4QquVq2+rQFcfeVFK1Jq42b0=
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -9188,6 +9198,14 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
+
+stripe-checkout@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/stripe-checkout/-/stripe-checkout-1.0.9.tgz#37ee8128358c0693d8ccb9e4c30e21f308333600"
+  integrity sha512-9kf8G/wY8XPXp/aPZ/nIm56+iC6wX/WihYG8cx458LHGLymcMNKAdfZCJSfdXbXE9tLlHzW0vRGxAMFQmU1cNA==
+  dependencies:
+    deferral "^1.0.0"
+    little-loader "0.2.0"
 
 style-loader@0.23.1:
   version "0.23.1"
