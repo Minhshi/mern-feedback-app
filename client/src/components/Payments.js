@@ -23,3 +23,4 @@ export default connect(
   null,
   { fetchUser, handleToken }
 )(Payments);
+
