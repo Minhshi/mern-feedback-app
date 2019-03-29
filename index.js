@@ -13,6 +13,7 @@ const keys = require("./config/keys");
 // const GoogleStrategy = require("passport-google-oauth20").Strategy;
 // const keys = require("./config/keys");
 require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI);
