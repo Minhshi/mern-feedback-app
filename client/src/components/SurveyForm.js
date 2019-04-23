@@ -19,6 +19,7 @@ class SurveyForm extends React.Component {
             component={SurveyField}
             label={field.label}
             name={field.name}
+            type="text"
           />
         </div>
       );
@@ -49,6 +50,17 @@ class SurveyForm extends React.Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if (!values.title) {
+    errors.title = "Please provide a title";
+  }
+
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: "surveyForm"
 })(SurveyForm);
