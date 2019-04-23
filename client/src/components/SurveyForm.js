@@ -53,9 +53,15 @@ class SurveyForm extends React.Component {
 function validate(values) {
   const errors = {};
 
-  if (!values.title) {
-    errors.title = "Please provide a title";
-  }
+  // if (!values.title) {
+  //   errors.title = "Please provide a title";
+  // }
+
+  FIELDS.forEach(field => {
+    if (!values[field.name]) {
+      errors[field.name] = "Please provide a value";
+    }
+  });
 
   return errors;
 }
