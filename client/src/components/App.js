@@ -16,7 +16,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <BrowserRouter>
-          <div>
+          <div className="container">
             <Header />
             <Switch>
               <Route exact path="/" component={Landing} />
