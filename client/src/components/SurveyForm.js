@@ -2,6 +2,7 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import SurveyField from "./SurveyField";
 import { Link } from "react-router-dom";
+// import validateEmails from "../utils/validateEmails";
 
 const FIELDS = [
   { label: "Survey Title", name: "title" },
@@ -50,12 +51,37 @@ class SurveyForm extends React.Component {
   }
 }
 
+//  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+// function emails() {
+//   const emailsArray = emails
+//                       .split(",")
+//                       .map(email => email.trim())
+//                       .filter(email => re.test(email) === false)
+// }
+
+function validateEmails(emailList) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  const invalidEmails = emailList
+    .split(",")
+    .map(email => email.trim())
+    .filter(email => re.test(email) === false);
+
+  if (invalidEmails.length) {
+    return `These emails are invalid: ${invalidEmails}`;
+  }
+}
+
 function validate(values) {
   const errors = {};
 
   // if (!values.title) {
   //   errors.title = "Please provide a title";
   // }
+
+  errors.emails = validateEmails(values.emails || "");
+  // errors.emails = validateEmails(values.emails || "");
 
   FIELDS.forEach(field => {
     if (!values[field.name]) {
