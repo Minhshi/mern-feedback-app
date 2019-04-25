@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class SurveyFormReview extends React.Component {
   render() {
@@ -16,4 +17,11 @@ class SurveyFormReview extends React.Component {
   }
 }
 
-export default SurveyFormReview;
+function mapStateToProps(state) {
+  // console.log(state)
+  return {
+    formValues: state.form.surveyForm.values
+  };
+}
+
+export default connect(mapStateToProps)(SurveyFormReview);
