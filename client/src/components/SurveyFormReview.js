@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import FIELDS from "./formFields";
+import { submitSurvey } from "../actions";
+import { withRouter } from "react-router-dom";
 
 class SurveyFormReview extends React.Component {
   reviewFields() {
@@ -27,7 +29,12 @@ class SurveyFormReview extends React.Component {
         >
           Back
         </button>
-        <button className="green btn-flat white-text right">
+        <button
+          className="green btn-flat white-text right"
+          onClick={() =>
+            this.props.submitSurvey(this.props.formValues, this.props.history)
+          }
+        >
           Send Survey
           <i className="material-icons right">email</i>
         </button>
@@ -43,4 +50,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(SurveyFormReview);
+export default connect(
+  mapStateToProps,
+  { submitSurvey }
+)(withRouter(SurveyFormReview));

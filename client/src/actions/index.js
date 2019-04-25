@@ -28,3 +28,16 @@ export const handleToken = token => async dispatch => {
     payload: res.data
   });
 };
+
+export const submitSurvey = (values, history) => async dispatch => {
+  // return { type: "SUBMIT_SURVEY"}
+
+  const res = await axios.post("/api/surveys", values);
+
+  history.push("/surveys");
+
+  dispatch({
+    type: "FETCH_USER",
+    payload: res.data
+  });
+};
