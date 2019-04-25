@@ -83,7 +83,7 @@ function validate(values) {
   //   errors.title = "Please provide a title";
   // }
 
-  errors.emails = validateEmails(values.emails || "");
+  errors.recipients = validateEmails(values.recipients || "");
   // errors.emails = validateEmails(values.emails || "");
 
   FIELDS.forEach(field => {
