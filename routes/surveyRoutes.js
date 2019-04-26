@@ -38,7 +38,22 @@ module.exports = app => {
 
     // console.log(uniqueEvents);
 
-    res.send({})
+    uniqueEvents.forEach(event => {
+      Survey.updateOne(
+        {
+          _id: event.surveyId,
+          recipients: {
+            $elemMatch: { email: event.email, responded: false }
+          }
+        },
+        {
+          $inc: { [event.choice]: 1 },
+          $set: { "recipients.$.responded": true }
+        }
+      ).call();
+    });
+
+    res.send({});
   });
 
   app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
